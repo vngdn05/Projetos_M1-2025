@@ -41,7 +41,7 @@ function preload() {
 
 function create() {
     this.add.image(400, 300, 'bg').setScale(1.2);
-    passarinho = this.add.sprite(100, 300, 'bird').setScale(1.3);
+    passarinho = this.add.sprite(100, 530, 'bird').setScale(1.3);
 
     this.anims.create({
         key: 'fly',
@@ -55,30 +55,26 @@ function create() {
 }
 
 function update() { 
-
-    if (passarinho.y === 300){
+    //eixo Y
+    if (passarinho.y === 530){
         passarinho.subida1 = true
         passarinho.setFlip(false,false)
     }
-    if (passarinho.y > 100 && passarinho.subida1 === true) {
-        passarinho.y -= 5 
+    if (passarinho.y > 40 && passarinho.subida1 === true) {
+        passarinho.y -= 2 
         console.log("o passarinho começa a subir")
     }
 
-    if (passarinho.y === 150) {
+    if (passarinho.y === 40) {
         passarinho.subida1 = false;
-
     }
 
-    if (passarinho.y < 300 && passarinho.subida1 === false) {
-        passarinho.y += 5
+    if (passarinho.y < 530 && passarinho.subida1 === false) {
+        passarinho.y += 2
         console.log("o passarinho começa a descer")
     }
 
-
-
-
-
+    //eixo X
     if (passarinho.x === 100){
         passarinho.ida = true
         console.log("em 100 o passarinho começa a se movimentar de frente para a direta")
