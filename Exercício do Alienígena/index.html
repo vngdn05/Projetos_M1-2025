@@ -25,7 +25,7 @@
                 default: 'arcade',
                 arcade: {
                     gravity: {y: 300},
-                    debug: true
+                    debug: false
                 }
             },
             // estrutura do codigo
@@ -47,7 +47,7 @@
         var moeda;
         var pontuacao = 0;
         var placar;
-        var coracao;
+        var coracao = [];
 
         function preload() {
             // Colocando todas as imagens no site
@@ -102,8 +102,10 @@
                 moeda.setVisible(true); // ativa a visão da "nova moeda"
             });
 
-            // adicionando coração 
-            coracao = this.physics.add.staticImage(600, 100, 'coracao');
+            // adicionando corações 
+            coracao.push(this.physics.add.staticImage(600, 100, 'coracao'), 
+            this.physics.add.staticImage(100, 100, 'coracao'),
+            this.physics.add.staticImage(250, 300, 'coracao'))
             this.physics.add.collider(coracao, alien);
 
         }
